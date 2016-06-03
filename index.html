@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+     <title>Example of a Client Side Routing via Angular</title>
+     <style>
+          body {
+               font-family: Verdana;
+          }
+          .center {
+               text-align: center;
+          }
+     </style>
+     <script src="angular.js"></script>
+     <script src="angular-route.js"></script>
+
+     <script>
+          var myApp = angular.module('myAppModule', ['ngRoute']);
+
+          /* config */
+          myApp.config(function($routeProvider){
+               $routeProvider
+                    .when('/page1', {
+                         templateUrl: 'page1.html'
+                    })
+                    .when('/page2', {
+                         templateUrl: 'page2.html'
+                    })
+                    .when('/page3', {
+                         templateUrl: 'page3.html'
+                    })
+                    .otherwise({
+                         redirectTo: '.page1.html'
+                    })
+          });
+     </script>
+
+</head>
+<body ng-app='myAppModule'>
+     <h1 class = 'center'>My Hobbies</h1>
+     <p class = 'center'>
+     <a href="#page1">Photography</a>
+     <a href="#page2">Piano</a>
+     <a href="#page3">Aircraft</a></p>
+     <!-- the ng-view directive tells the browser where the page will display -->
+     <ng-view></ng-view>
+</body>
+</html>
